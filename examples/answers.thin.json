@@ -1,0 +1,17 @@
+{
+  "mode": "greenfield",
+  "project": "example",
+  "owner": "Your Name",
+  "repo": "you/example",
+  "github_handle": "you",
+  "stacks": ["python"],
+  "profile": "thin",
+  "problem": "One-line problem.",
+  "metric": "The number that would prove value.",
+  "heavy_zones": "none yet",
+  "kill_criteria": "What observed result within N weeks means stop.",
+  "implementer_model": "Grok 4.6",
+  "planner_model": "Claude Fable",
+  "suite_fallback": "pytest -q",
+  "ci_checks": []
+}

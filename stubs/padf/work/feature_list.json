@@ -1,0 +1,6 @@
+{
+  "updated": "{{updated}}",
+  "source": ["docs/charter.md"],
+  "note": "Status stays draft until a specs/UTV-NNN-*.md exists and R2 freezes it. done moves only via just utv-close.",
+  "items": []
+}

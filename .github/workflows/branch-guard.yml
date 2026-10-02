@@ -1,0 +1,26 @@
+name: Branch guard
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  guard:
+    name: Branch guard
+    runs-on: ubuntu-latest
+    steps:
+      - name: explore/* never merges to main (PR policy)
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          case "$HEAD_REF" in
+            explore/*)
+              echo "::error::'$HEAD_REF' is an EXPLORATION branch — survivors are re-specified as UTVs and reimplemented (PADF mode rules). This PR can never merge."
+              exit 1
+              ;;
+            *)
+              echo "head '$HEAD_REF' is allowed to target main"
+              ;;
+          esac

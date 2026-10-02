@@ -1,0 +1,48 @@
+# PADF harness declaration — Stage 0.
+# Do not claim verify-oracle / verify-suite exist until they are verbs.
+
+name: {{project}}
+stage: 0
+stacks:
+{{stacks_yaml}}
+
+protected_paths:
+  - padf/oracle/**
+  - docs/charter.md
+  - docs/contracts/**
+  - docs/criticality-map.md
+  - docs/phase-map.md
+  - .github/**
+
+tracker:
+  kind: github
+  repo: {{repo}}
+  labels:
+    triage: [needs-triage, needs-info, ready-for-author, ready-for-human, wontfix]
+    category: [bug, enhancement]
+    flow: [utv, amber, expedite]
+    wayfinder: ["wayfinder:map", "wayfinder:research", "wayfinder:prototype", "wayfinder:grilling", "wayfinder:task"]
+  notes: "ready-for-author feeds Monday utv-author, never an implementer. expedite = doesn't wait for Monday."
+
+signals:
+  utv_validate:
+    verb: just utv-validate
+    implemented: true
+  verify_oracle:
+    implemented: false
+  verify_suite:
+    implemented: false
+  evidence_check:
+    verb: just evidence-check
+    implemented: true
+  utv_close:
+    verb: just utv-close
+    implemented: true
+
+architecture:
+  profile: {{profile}}
+  adr: docs/adr/000-architecture.md
+
+fallbacks:
+  suite: |
+    {{suite_fallback}}

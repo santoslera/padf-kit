@@ -1,0 +1,9 @@
+# PADF role boundaries (AGENTS.md roles, padf/README.md § PR policy). At n=1 this is documentation.
+
+/.github/            @{{github_handle}}
+/padf/harness/       @{{github_handle}}
+/padf/oracle/        @{{github_handle}}
+/padf/specs/         @{{github_handle}}
+/docs/charter.md     @{{github_handle}}
+/docs/contracts/     @{{github_handle}}
+/docs/adr/           @{{github_handle}}

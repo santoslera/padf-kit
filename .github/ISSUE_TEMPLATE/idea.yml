@@ -1,0 +1,25 @@
+name: Idea / enhancement
+description: "Intake per PR policy: a capability or improvement to consider for the queue."
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: User-visible outcome
+      description: What changes for a user / operator / owner, and how it traces to docs/charter.md. Not an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Why now
+      description: The pain or datum behind it (user feedback, Friday report line, audit finding id, EXPLORE report).
+  - type: dropdown
+    id: fog
+    attributes:
+      label: How clear is the shape?
+      options:
+        - clear — could be specced next Monday (ready-for-author candidate)
+        - foggy — needs a wayfinder map or EXPLORE spike first
+    validations:
+      required: true

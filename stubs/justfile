@@ -1,0 +1,14 @@
+# PADF Contract verbs. verify-oracle / verify-suite are not implemented yet.
+
+set dotenv-load := false
+
+utv-validate file:
+    python3 padf/harness/scripts/utv_validate.py {{file}}
+
+evidence-check file:
+    python3 padf/harness/scripts/evidence_check.py {{file}}
+
+# AMBER merged by the owner: just utv-close padf/specs/UTV-NNN-x.md --owner-override "reason"
+[positional-arguments]
+utv-close file *args:
+    python3 padf/harness/scripts/utv_close.py "$@"

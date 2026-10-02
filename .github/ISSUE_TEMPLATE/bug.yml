@@ -1,0 +1,49 @@
+name: Bug report
+description: "Intake per PR policy: something is broken. Evidence beats prose."
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues are the only intake (PR policy). Agent-filed issues MUST start the description
+        with: `> *Filed by an AI agent.*` and carry an evidence label below.
+  - type: textarea
+    id: what
+    attributes:
+      label: What breaks
+      description: One sentence of the wrong behavior, then the concrete failure scenario (inputs/state → wrong result).
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Exact commands / requests / clicks, and the observed vs expected output. Paste exit codes.
+      render: shell
+    validations:
+      required: true
+  - type: dropdown
+    id: evidence
+    attributes:
+      label: Evidence level
+      options:
+        - CONFIRMED — reproduced with the commands above
+        - PLAUSIBLE — traced in code/docs, not fully reproduced
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: "production-down / data-at-risk → also add the `expedite` label: it becomes an expedited UTV, not a Monday item."
+      options:
+        - production down / data at risk (expedite)
+        - wrong behavior, has workaround
+        - polish / ergonomics
+    validations:
+      required: true
+  - type: input
+    id: area
+    attributes:
+      label: Area
+      description: "module or path, e.g. src/billing, web/src/features/signup"
